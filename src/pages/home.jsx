@@ -1,13 +1,13 @@
+import React from 'react';
 import RecipeList from '../components/recipes/RecipeList';
 
 function Home() {
 
   return (
-    <><div >
+    <><div>
       <h1>Mis Recetas</h1>
       <RecipeList />
     </div></>
-    
   );
 }
 

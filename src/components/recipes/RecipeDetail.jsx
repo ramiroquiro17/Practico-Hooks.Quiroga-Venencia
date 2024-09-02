@@ -1,8 +1,6 @@
-import { useContext } from 'react';
-import { RecipeContext } from '../../context/RecipeContext';
 import { useNavigate } from 'react-router-dom';
+import CardRecipe from '../card';
 const RecipeItem = ({ recipe, index }) => {
-  const { deleteRecipe } = useContext(RecipeContext);
   const navigate = useNavigate();
   const object = {
     "recipe": recipe,
@@ -13,9 +11,7 @@ const RecipeItem = ({ recipe, index }) => {
 
 
   return (
-    <div>
-      <h3 onClick={handleClick}>{recipe.name}</h3>
-    </div>
+  <CardRecipe name={recipe.name} description={recipe.description} onClick={handleClick}/>
   );
 };
 

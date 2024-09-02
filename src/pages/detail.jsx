@@ -1,9 +1,10 @@
+import React from 'react';
 import '../App.css';
 import { useContext } from 'react';
 import { RecipeContext } from './../context/RecipeContext';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import Navbar from '../components/navbar';
+import { Container, Typography, Box, Paper, Button } from '@mui/material';
 
 function Detail() {
   const location = useLocation();
@@ -19,14 +20,40 @@ function Detail() {
     navigate('/')
   }
   return (
-      <div className="App">
-        <h1>detalle</h1>
-        <h3 >{recipe.name}</h3>
-        <p>{recipe.description}</p>
-        <button onClick={() =>handleDelete(index)}>Eliminar</button>
-        <button onClick={() =>handleClick(index)}>Volver</button>
-      </div>
-    
+        <Container maxWidth="md" sx={{ mt: 4 }}>
+      <Paper elevation={3} sx={{ p: 3 }}>
+        <Typography variant="h4" gutterBottom>
+          {recipe.name}
+        </Typography>
+        <Typography variant="body1" >
+          {recipe.description}
+        </Typography>
+        <Box sx={{ mt: 3 }}>
+          <Typography variant="h5" gutterBottom>
+            Ingredientes
+          </Typography>
+          <Typography variant="body1" >
+          {recipe.ingredientes}
+        </Typography>
+        </Box>
+        <Box sx={{ mt: 3 }}>
+          <Typography variant="h5" gutterBottom>
+            Pasos
+          </Typography>
+          <Typography variant="body1" >
+          {recipe.pasos}
+        </Typography>
+        </Box>
+        <Box sx={{ mt: 4, display: 'flex', justifyContent: 'space-between' }}>
+          <Button variant="contained" color="primary" onClick={() =>handleDelete(index)}>
+            Eliminar
+          </Button>
+          <Button variant="contained" color="primary" onClick={handleClick}>
+            Volver
+          </Button>
+        </Box>
+      </Paper>
+    </Container>    
   );
 }
 

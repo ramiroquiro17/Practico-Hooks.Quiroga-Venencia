@@ -7,13 +7,15 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import HomeIcon from '@mui/icons-material/Home';
 import { useAuth } from '../context/AuthContext';
+import'../index.css';
+import '../styles.css';
 
 const BarraAutenticado = () => {
   const navigate = useNavigate();
   const { cerrarSesion } = useAuth();
   return (
     <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static">
+    <AppBar position="fixed" className="navbar">
       <Toolbar>
         <IconButton
           size="large"
@@ -25,9 +27,7 @@ const BarraAutenticado = () => {
         >
           <HomeIcon />
         </IconButton>
-        <Button color="inherit" onClick={() => navigate('/inicio-sesion')}>Iniciar sesión</Button>
-        <Button color="inherit" onClick={() => navigate('/registrarse')}>registrarse</Button>
-        <Button color="inherit" onClick={() => navigate('/form')}>Nueva reseta</Button>
+        <Button color="inherit" onClick={() => navigate('/form')}>Nueva receta</Button>
         <Button color="inherit" onClick={() => cerrarSesion()}>Cerrar Sesión</Button>
       </Toolbar>
     </AppBar>
@@ -39,7 +39,7 @@ const BarraNoAutenticado = () => {
   const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static">
+    <AppBar position="fixed" className="navbar">
       <Toolbar>
         <IconButton
           size="large"
