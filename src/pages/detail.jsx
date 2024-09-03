@@ -20,7 +20,7 @@ function Detail() {
     navigate('/')
   }
   return (
-        <Container maxWidth="md" sx={{ mt: 4 }}>
+        <Container maxWidth="md" sx={{ mt: 4, width: 550}}>
       <Paper elevation={3} sx={{ p: 3 }}>
         <Typography variant="h4" gutterBottom>
           {recipe.name}
